@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
+  name;
+  age;
+  gender;
+  weight;
+  height;
+  pic: any;
+
   constructor() { }
 
   ngOnInit() {
