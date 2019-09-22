@@ -1,8 +1,4 @@
-
-// ion-content {
-//     --ion-background-color: #2196F3;
-// }
-  .centered {
+.centered {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -10,5 +6,10 @@
     transform: translate(-50%, -50%);
   }
   .head{
-      text-align: center;
-  }
+    text-align: center;
+ }
+ 
+ .size {
+    text-align: center!important;
+    font-size: 100px;
+}
