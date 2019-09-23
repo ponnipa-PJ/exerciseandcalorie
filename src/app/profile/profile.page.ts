@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -14,9 +15,12 @@ export class ProfilePage implements OnInit {
   height;
   pic: any;
 
-  constructor() { }
+  constructor(public navCtrl: NavController) { }
 
   ngOnInit() {
+  }
+  click() {
+    this.navCtrl.navigateForward(['/home']);
   }
 
 }
