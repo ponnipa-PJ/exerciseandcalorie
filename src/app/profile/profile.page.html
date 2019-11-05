@@ -1,20 +1,7 @@
 <ion-content>
   <div class="centered">
     <div class="head">
-      <ion-icon class="size" name="contact">
-      </ion-icon>
-      <div class="head">
-      <ion-item>
-        <ion-label floating >รูปโปรไฟล์</ion-label>
-        <ion-input type="file" [id]="pic"></ion-input>
-      </ion-item>
-      </div>
       <ion-list>
-
-        <ion-item>
-          <ion-label floating>ชื่อ</ion-label>
-          <ion-input type="text" [(ngModel)]="name"></ion-input>
-        </ion-item>
 
         <ion-item>
           <ion-label floating>อายุ</ion-label>
@@ -22,12 +9,12 @@
         </ion-item>
 
         <ion-item>
-            <ion-label>เพศ</ion-label>
-            <ion-select placeholder="เลือก">
-              <ion-select-option value="f">หญิง</ion-select-option>
-              <ion-select-option value="m">ชาย</ion-select-option>
-            </ion-select>
-          </ion-item>
+          <ion-label>เพศ</ion-label>
+          <ion-select placeholder="เลือก" interface="popover"  (ionChange)="onChange($event)">
+            <ion-select-option value="f">หญิง</ion-select-option>
+            <ion-select-option value="m">ชาย</ion-select-option>
+          </ion-select>
+        </ion-item>
 
         <ion-item>
           <ion-label floating>น้ำหนัก</ion-label>
@@ -41,6 +28,6 @@
         <ion-button expand="block">ตั้งค่าโปรไฟล์</ion-button>
       </ion-list>
     </div>
-    </div>
-    
+  </div>
+
 </ion-content>

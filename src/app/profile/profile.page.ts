@@ -18,5 +18,8 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
   }
-
+  onChange(value) {
+    console.log(value.detail.value);
+     
+  }
 }
