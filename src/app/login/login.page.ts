@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +8,30 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
+  todo = {}
+  gender = 'female';
   constructor(public navCtrl: NavController) { }
+
+  logForm() {
+    console.log(this.todo)
+  }
+
+  onChange(value) {
+    this.gender = value.detail.value
+  }
+
+  go() {
+    let param = {
+      data: this.todo,
+      gender: this.gender
+    }
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        data: JSON.stringify(param)
+      }
+    };
+    this.navCtrl.navigateForward(['/profile/'], navigationExtras);
+  }
 
   ngOnInit() {
     //#region BFC
@@ -53,7 +76,7 @@ export class LoginPage implements OnInit {
     // console.log(bmr);   
 
     //#endregion
-    
+
     //#region BMI
     let w = 60
     let h = 160
@@ -61,7 +84,7 @@ export class LoginPage implements OnInit {
     // console.log(bmi);
 
     //#endregion
-    
+
     //#region IBW
     //female
     let ibm = h - 110
@@ -78,5 +101,7 @@ export class LoginPage implements OnInit {
   click() {
     this.navCtrl.navigateForward(['/profile']);
   }
+
+
 
 }

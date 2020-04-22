@@ -6,8 +6,51 @@
   </ion-item>
   <div class="centered">
     <div class="head">
-      <ion-icon class="size" name="contact"></ion-icon>
-      <ion-button expand="block" (click)="click()">ตั้งค่าโปรไฟล์</ion-button>     
+      <form (ngSubmit)="logForm()">
+        <ion-item>
+          <ion-label floating>คุณเป็นเพศอะไร</ion-label>
+          <ion-select interface="popover" value="female" (ionChange)="onChange($event)">
+            <ion-select-option value="female">เพศหญิง</ion-select-option>
+            <ion-select-option value="male">เพศชาย</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>อายุ</ion-label>
+          <ion-input type="number" [(ngModel)]="todo.age" name="age"></ion-input>ปี
+        </ion-item>
+        <ion-item>
+          <ion-label floating>น้ำหนัก</ion-label>
+          <ion-input type="number" [(ngModel)]="todo.weight" name="weight"></ion-input>กก.
+        </ion-item>
+        <ion-item>
+          <ion-label floating>ส่วนสูง</ion-label>
+          <ion-input type="number" [(ngModel)]="todo.height" name="height"></ion-input>ซม.
+        </ion-item>
+        <ion-item *ngIf="gender == 'female'; else show" #show>
+          <ion-label floating>รอบข้อมือ</ion-label>
+          <ion-input type="number" [(ngModel)]="todo.wrist" name="wrist"></ion-input>ซม.
+        </ion-item>
+        <ion-item *ngIf="gender == 'female'; else show" #show>
+          <ion-label floating>รอบต้นแขน(บริเวณที่กว้างที่สุด)</ion-label>
+          <ion-input type="number" [(ngModel)]="todo.brachium" name="brachium"></ion-input>ซม.
+        </ion-item>
+        <ion-item>
+          <ion-label floating>รอบเอว(บริเวณสะดือ)</ion-label>
+          <ion-input type="number" [(ngModel)]="todo.waistline" name="waistline"></ion-input>ซม.
+        </ion-item>
+        <ion-item *ngIf="gender == 'female'; else show" #show>
+          <ion-label floating>รอบสะโพก</ion-label>
+          <ion-input type="number" [(ngModel)]="todo.hipcircumference" name="hipcircumference"></ion-input>ซม.
+        </ion-item>
+        <!-- <ion-item>
+          <ion-label floating>กิจกรรม</ion-label>
+          <ion-select interface="popover" value="female">
+            <ion-select-option value="female">1</ion-select-option>
+            <ion-select-option value="male">2</ion-select-option>
+          </ion-select>
+        </ion-item> -->
+        <ion-button type="submit" expand="block" color="success" (click)="go()">Go</ion-button>
+      </form>
     </div>
   </div>
 </ion-content>

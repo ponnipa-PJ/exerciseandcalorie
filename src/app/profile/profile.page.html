@@ -4,28 +4,37 @@
       <ion-list>
 
         <ion-item>
-          <ion-label floating>อายุ</ion-label>
-          <ion-input type="number" [(ngModel)]="age"></ion-input>ปี
-        </ion-item>
-
-        <ion-item>
           <ion-label>เพศ</ion-label>
-          <ion-select placeholder="เลือก" interface="popover"  (ionChange)="onChange($event)">
-            <ion-select-option value="f">หญิง</ion-select-option>
-            <ion-select-option value="m">ชาย</ion-select-option>
-          </ion-select>
+          <ion-label floating>{{gender}}</ion-label>
         </ion-item>
-
+        <ion-item>
+          <ion-label floating>อายุ</ion-label>
+          <ion-label floating>{{age}}</ion-label>ปี
+        </ion-item>   
         <ion-item>
           <ion-label floating>น้ำหนัก</ion-label>
-          <ion-input type="number" [(ngModel)]="weight"></ion-input>กก.
+          <ion-label floating>{{weight}}</ion-label>กก.
         </ion-item>
         <ion-item>
           <ion-label floating>ส่วนสูง</ion-label>
-          <ion-input type="number" [(ngModel)]="height"></ion-input>ซม.
+          <ion-label floating>{{height}}</ion-label>ซม.
         </ion-item>
-
-        <ion-button expand="block">ตั้งค่าโปรไฟล์</ion-button>
+        <ion-item *ngIf="gendervalue == 'female'; else show" #show>
+          <ion-label floating>รอบข้อมือ</ion-label>
+          <ion-label floating>{{wrist}}</ion-label>ซม.
+        </ion-item>
+        <ion-item *ngIf="gendervalue == 'female'; else show" #show>
+          <ion-label floating>รอบต้นแขน(บริเวณที่กว้างที่สุด)</ion-label>
+          <ion-label floating>{{brachium}}</ion-label>ซม.
+        </ion-item>
+        <ion-item>
+          <ion-label floating>รอบเอว(บริเวณสะดือ)</ion-label>
+          <ion-label floating>{{waistline}}</ion-label>ซม.
+        </ion-item>
+        <ion-item *ngIf="gendervalue == 'female'; else show" #show>
+          <ion-label floating>รอบสะโพก</ion-label>
+          <ion-label floating>{{hipcircumference}}</ion-label>ซม.
+        </ion-item>
       </ion-list>
     </div>
   </div>
