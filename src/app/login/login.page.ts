@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { NavigationExtras } from '@angular/router';
+import { CheckauthService } from '../services/checkauth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,9 @@ import { NavigationExtras } from '@angular/router';
 export class LoginPage implements OnInit {
   todo = {}
   gender = 'female';
-  constructor(public navCtrl: NavController) { }
+  activity;
+  constructor(public navCtrl: NavController,
+    private authService: CheckauthService,) { }
 
   logForm() {
     console.log(this.todo)
@@ -20,17 +23,25 @@ export class LoginPage implements OnInit {
     this.gender = value.detail.value
   }
 
+  onChangeactivity(value) {
+    this.activity = value.detail.value
+  }
+  
   go() {
     let param = {
       data: this.todo,
-      gender: this.gender
+      gender: this.gender,
+      activity: this.activity
     }
-    const navigationExtras: NavigationExtras = {
-      queryParams: {
-        data: JSON.stringify(param)
-      }
-    };
-    this.navCtrl.navigateForward(['/profile/'], navigationExtras);
+    console.log(param);
+    
+    this.authService.login(param);
+    // const navigationExtras: NavigationExtras = {
+    //   queryParams: {
+    //     data: JSON.stringify(param)
+    //   }
+    // };
+    // this.navCtrl.navigateForward(['/profile/'], navigationExtras);
   }
 
   ngOnInit() {
