@@ -1,61 +1,54 @@
 <ion-content>
-  <ion-item>
-    <ion-item slot="end">
-      <ion-icon small name="settings"></ion-icon>
-    </ion-item>
-  </ion-item>
-  <div class="centered">
-    <div class="head">
-      <h3>ยินดีต้อนรับ</h3>
-      <h3>กรุณาบอกเราสักนิดเกี่ยวกับคุณ</h3>
-      <form (ngSubmit)="logForm()" #form="ngForm" (ngSubmit)="go(form)">
-        <ion-item>
-          <ion-label floating>คุณเป็นเพศอะไร</ion-label>
-          <ion-select interface="popover" value="female" (ionChange)="onChange($event)">
-            <ion-select-option value="female">เพศหญิง</ion-select-option>
-            <ion-select-option value="male">เพศชาย</ion-select-option>
-          </ion-select>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>อายุ</ion-label>
-          <ion-input type="number" [(ngModel)]="todo.age" name="age" required></ion-input>ปี
-        </ion-item>
-        <ion-item>
-          <ion-label floating>น้ำหนัก</ion-label>
-          <ion-input type="number" [(ngModel)]="todo.weight" name="weight" required></ion-input>กก.
-        </ion-item>
-        <ion-item>
-          <ion-label floating>ส่วนสูง</ion-label>
-          <ion-input type="number" [(ngModel)]="todo.height" name="height" required></ion-input>ซม.
-        </ion-item>
-        <ion-item *ngIf="gender == 'female'; else show" #show>
-          <ion-label floating>รอบข้อมือ</ion-label>
-          <ion-input type="number" [(ngModel)]="todo.wrist" name="wrist" required></ion-input>ซม.
-        </ion-item>
-        <ion-item *ngIf="gender == 'female'; else show" #show>
-          <ion-label floating>รอบต้นแขน(บริเวณที่กว้างที่สุด)</ion-label>
-          <ion-input type="number" [(ngModel)]="todo.brachium" name="brachium" required></ion-input>น.
-        </ion-item>
-        <ion-item>
-          <ion-label floating>รอบเอว(บริเวณสะดือ)</ion-label>
-          <ion-input type="number" [(ngModel)]="todo.waistline" name="waistline" required></ion-input>น.
-        </ion-item>
-        <ion-item *ngIf="gender == 'female'; else show" #show>
-          <ion-label floating>รอบสะโพก</ion-label>
-          <ion-input type="number" [(ngModel)]="todo.hipcircumference" name="hipcircumference" required></ion-input>น.
-        </ion-item>
-        <ion-item>
-          <ion-label floating>กิจกรรม</ion-label>
-          <ion-select interface="popover" (ionChange)="onChangeactivity($event)">            
-            <ion-select-option value="1.2">นั่งทำงานอยู่กับที่ และไม่ได้ออกกำลังกายเลย</ion-select-option>
-            <ion-select-option value="1.375">ออกกำลังกายหรือเล่นกีฬาเล็กน้อย ประมาณอาทิตย์ละ 1-3 วัน</ion-select-option>
-            <ion-select-option value="1.55">ออกกำลังกายหรือเล่นกีฬาปานกลาง ประมาณอาทิตย์ละ 3-5 วัน</ion-select-option>
-            <ion-select-option value="1.725">ออกกำลังกายหรือเล่นกีฬาอย่างหนัก ประมาณอาทิตย์ละ 6-7 วัน</ion-select-option>
-            <ion-select-option value="1.9">ออกกำลังกายหรือเล่นกีฬาอย่างหนักทุกวันเช้าเย็น</ion-select-option>
-          </ion-select>
-        </ion-item>
-        <ion-button type="submit" [disabled]="form.invalid" expand="block" color="success">หน้าถัดไป</ion-button>
-      </form>
-    </div>
+  <div class="container">
+    <h3 style="text-align: center;">กรุณาบอกเราสักนิดเกี่ยวกับคุณ</h3>
+    <h4>ค่าเหล่านี้ใช้ในการคำนวณเพื่อสร้างแผนการออกกำลังกายส่วนบุคคลของคุณ</h4>
+    <form (ngSubmit)="logForm()" #form="ngForm" (ngSubmit)="go(form)">
+      <ion-item>
+        <ion-label floating>คุณเป็นเพศอะไร</ion-label>
+        <ion-select interface="popover" value="female" (ionChange)="onChange($event)">
+          <ion-select-option value="female">เพศหญิง</ion-select-option>
+          <ion-select-option value="male">เพศชาย</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>อายุ</ion-label>
+        <ion-input type="number" [(ngModel)]="todo.age" name="age" required></ion-input>ปี
+      </ion-item>
+      <ion-item>
+        <ion-label floating>น้ำหนัก</ion-label>
+        <ion-input type="number" [(ngModel)]="todo.weight" name="weight" required></ion-input>กก.
+      </ion-item>
+      <ion-item>
+        <ion-label floating>ส่วนสูง</ion-label>
+        <ion-input type="number" [(ngModel)]="todo.height" name="height" required></ion-input>ซม.
+      </ion-item>
+      <ion-item *ngIf="gender == 'female'; else show" #show>
+        <ion-label floating>รอบข้อมือ</ion-label>
+        <ion-input type="number" [(ngModel)]="todo.wrist" name="wrist" required></ion-input>ซม.
+      </ion-item>
+      <ion-item *ngIf="gender == 'female'; else show" #show>
+        <ion-label floating>รอบต้นแขน(บริเวณที่กว้างที่สุด)</ion-label>
+        <ion-input type="number" [(ngModel)]="todo.brachium" name="brachium" required></ion-input>น.
+      </ion-item>
+      <ion-item>
+        <ion-label floating>รอบเอว(บริเวณสะดือ)</ion-label>
+        <ion-input type="number" [(ngModel)]="todo.waistline" name="waistline" required></ion-input>น.
+      </ion-item>
+      <ion-item *ngIf="gender == 'female'; else show" #show>
+        <ion-label floating>รอบสะโพก</ion-label>
+        <ion-input type="number" [(ngModel)]="todo.hipcircumference" name="hipcircumference" required></ion-input>น.
+      </ion-item>
+      <ion-item>
+        <ion-label floating>กิจกรรม</ion-label>
+        <ion-select interface="popover" (ionChange)="onChangeactivity($event)">
+          <ion-select-option value="1.2">นั่งทำงานอยู่กับที่ และไม่ได้ออกกำลังกายเลย</ion-select-option>
+          <ion-select-option value="1.375">ออกกำลังกายหรือเล่นกีฬาเล็กน้อย ประมาณอาทิตย์ละ 1-3 วัน</ion-select-option>
+          <ion-select-option value="1.55">ออกกำลังกายหรือเล่นกีฬาปานกลาง ประมาณอาทิตย์ละ 3-5 วัน</ion-select-option>
+          <ion-select-option value="1.725">ออกกำลังกายหรือเล่นกีฬาอย่างหนัก ประมาณอาทิตย์ละ 6-7 วัน</ion-select-option>
+          <ion-select-option value="1.9">ออกกำลังกายหรือเล่นกีฬาอย่างหนักทุกวันเช้าเย็น</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button type="submit" [disabled]="form.invalid" expand="block" color="primary">หน้าถัดไป</ion-button>
+    </form>
   </div>
 </ion-content>
