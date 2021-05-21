@@ -68,7 +68,9 @@ export class ProfilePage implements OnInit {
        brachium: this.data.data.brachium ,
        waistline: this.data.data.waistline ,
        hipcircumference: this.data.data.hipcircumference }
-      console.log(this.todo);
+      console.log(this.gendervalue);
+      console.log(this.activity);
+      
       
       this.calvalue();
 

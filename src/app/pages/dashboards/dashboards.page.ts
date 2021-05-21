@@ -10,8 +10,8 @@ const TOKEN_KEY = 'auth-token';
   styleUrls: ['./dashboards.page.scss'],
 })
 export class DashboardsPage implements OnInit {
- data;
- name;
+  data;
+  name;
   age;
   gender
   gendervalue;
@@ -45,10 +45,10 @@ export class DashboardsPage implements OnInit {
     }, 500);
   }
 
-  getLocal(){
+  getLocal() {
     this.storage.get(TOKEN_KEY).then(res => {
       this.data = res
-      this.age = this.data.data.age;   
+      this.age = this.data.data.age;
       this.gendervalue = this.data.gender
       this.activity = this.data.activity
       this.age = this.data.data.age
@@ -59,6 +59,8 @@ export class DashboardsPage implements OnInit {
       this.waistline = this.data.data.waistline
       this.hipcircumference = this.data.data.hipcircumference
       this.calvalue();
+      console.log(res);
+      
     })
   }
 
@@ -81,6 +83,7 @@ export class DashboardsPage implements OnInit {
       this.bfw = pond - this.lbm
       //%ไขมัน
       this.bfc = (this.bfw * 100) / pond
+      this.bfc = this.bfc.toFixed()
       console.log(this.lbm);
       console.log(this.bfw);
       console.log(this.bfc);
@@ -96,6 +99,7 @@ export class DashboardsPage implements OnInit {
 
       //#region BMI
       this.bmi = this.weight / ((this.height / 100) * (this.height / 100))
+      this.bmi = this.bmi.toFixed()
       console.log(this.bmi);
       this.calbmi();
       //#endregion
@@ -104,7 +108,7 @@ export class DashboardsPage implements OnInit {
       this.ibm = this.height - 110
       console.log(this.ibm);
       //#endregion  
-    
+
     } else {
       this.gender = 'ชาย'
 
@@ -149,28 +153,28 @@ export class DashboardsPage implements OnInit {
     if (this.gendervalue == 'female') {
       if (this.bfc >= 10 && this.bfc <= 13) {
         //ปกติ
-        this.fatdesc = "ไขมันค่อนข้างน้อย เท่าที่จำเป็น"
+        this.fatdesc = "ไขมันค่อนข้างน้อย"
       } else if (this.bfc >= 14 && this.bfc <= 20) {
-        this.fatdesc = "ไขมันพอประมาณ (กลุ่มนักกีฬา)"
+        this.fatdesc = "ไขมันพอประมาณ"
       } else if (this.bfc >= 21 && this.bfc <= 24) {
-        this.fatdesc = "ไขมันพอประมาณ (กลุ่มคนออกกำลังกายเป็นประจำ)"
+        this.fatdesc = "ไขมันพอประมาณ"
       } else if (this.bfc >= 25 && this.bfc <= 31) {
-        this.fatdesc = "ไขมันพอประมาณ อยู่เกณฑ์พอดี (กลุ่มคนทั่วไป)"
+        this.fatdesc = "ไขมันพอประมาณ"
       } else if (this.bfc >= 32) {
-        this.fatdesc = "ไขมันมากเกินไป ควรลดปริมาณไขมัน"
+        this.fatdesc = "ไขมันมากเกินไป"
       }
     } else {
       if (this.bfc >= 2 && this.bfc <= 5) {
         //ปกติ
-        this.fatdesc = "ไขมันค่อนข้างน้อย เท่าที่จำเป็น"
+        this.fatdesc = "ไขมันค่อนข้างน้อย"
       } else if (this.bfc >= 6 && this.bfc <= 13) {
-        this.fatdesc = "ไขมันพอประมาณ (กลุ่มนักกีฬา)"
+        this.fatdesc = "ไขมันพอประมาณ"
       } else if (this.bfc >= 14 && this.bfc <= 17) {
-        this.fatdesc = "ไขมันพอประมาณ (กลุ่มคนออกกำลังกายเป็นประจำ)"
+        this.fatdesc = "ไขมันพอประมาณ"
       } else if (this.bfc >= 18 && this.bfc <= 25) {
-        this.fatdesc = "ไขมันพอประมาณ อยู่เกณฑ์พอดี (กลุ่มคนทั่วไป)"
+        this.fatdesc = "ไขมันพอประมาณ"
       } else if (this.bfc >= 25) {
-        this.fatdesc = "ไขมันมากเกินไป ควรลดปริมาณไขมัน"
+        this.fatdesc = "ไขมันมากเกินไป"
       }
     }
     console.log(this.fatdesc);
@@ -180,39 +184,40 @@ export class DashboardsPage implements OnInit {
     Number(this.bmr);
     Number(this.activity);
     this.burns = this.bmr * this.activity;
+    this.burns = this.burns.toFixed()
     if (this.activity == "1.2") {
-      this.activitytext = "นั่งทำงานอยู่กับที่ และไม่ได้ออกกำลังกายเลย"
-    }else if (this.activity == "1.375") {
-      this.activitytext = "ออกกำลังกายหรือเล่นกีฬาปานกลาง ประมาณอาทิตย์ละ 3-5 วัน"
-    }else if (this.activity == "1.55") {
-      this.activitytext = "ออกกำลังกายหรือเล่นกีฬาอย่างหนัก ประมาณอาทิตย์ละ 6-7 วัน"
-    }else if (this.activity == "1.725") {
-      this.activitytext = "ออกกำลังกายหรือเล่นกีฬาอย่างหนักทุกวันเช้าเย็น"
-    }else if (this.activity == "1.9") {
-      this.activitytext = "ออกกำลังกายหรือเล่นกีฬาเล็กน้อย ประมาณอาทิตย์ละ 1-3 วัน"
+      this.activitytext = "ไม่ได้ออกกำลังกายเลย"
+    } else if (this.activity == "1.375") {
+      this.activitytext = "ออกกำลังกายอาทิตย์ละ 3-5 วัน"
+    } else if (this.activity == "1.55") {
+      this.activitytext = "ออกกำลังกายอาทิตย์ละ 6-7 วัน"
+    } else if (this.activity == "1.725") {
+      this.activitytext = "ออกกำลังกายทุกวันเช้าเย็น"
+    } else if (this.activity == "1.9") {
+      this.activitytext = "ออกกำลังกายอาทิตย์ละ 1-3 วัน"
     }
     Number(this.activity)
     this.cal = this.weight * this.height * this.age * this.activity;
   }
 
-  calbmi(){
+  calbmi() {
     Number(this.bmi);
     if (this.bmi <= 18.50) {
-      this.bmitext = "น้ำหนักน้อย / ผอม";
+      this.bmitext = "น้ำหนักน้อย";
       this.bmistatustext = "มากกว่าคนปกติ";
-    }else if (this.bmi > 18.50 && this.bmi <= 22.90) {
+    } else if (this.bmi > 18.50 && this.bmi <= 22.90) {
       this.bmitext = "ปกติ"
       this.bmistatustext = "เท่าคนปกติ";
-    }else if (this.bmi > 25 && this.bmi <= 29.90) {
+    } else if (this.bmi > 25 && this.bmi <= 29.90) {
       this.bmitext = "อ้วน"
       this.bmistatustext = "อันตรายระดับ 2";
-    }else if (this.bmi >= 30) {
+    } else if (this.bmi >= 30) {
       this.bmitext = "อ้วนมาก"
       this.bmistatustext = "อันตรายระดับ 3";
     }
   }
 
-  delete(){
+  delete() {
     this.authService.logout();
   }
 }

@@ -6,16 +6,12 @@
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
   }
-.head{
-    // text-align: center;
- }
  
+ ion-label{
+    font-size: 1em;
+ }
+
  .size {
     text-align: center!important;
     font-size: 100px;
 }
-
-.in-item.sc-ion-select-md-h{
-position:static;
-max-width:100%!important;
-} 
