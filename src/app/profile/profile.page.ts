@@ -105,6 +105,7 @@ export class ProfilePage implements OnInit {
       this.storage.set(TOKEN_KEY, param).then(() => {
         console.log("success");
         this.ngOnInit();
+        this.authService.login(param);
       });
     });    
   }
