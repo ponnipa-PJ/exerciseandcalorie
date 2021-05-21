@@ -52,11 +52,12 @@
     <h3>แก้ไขข้อมูล</h3>
     <form (ngSubmit)="logForm()" #form="ngForm" (ngSubmit)="save(form)">
       <ion-item>
-        <ion-label floating>คุณเป็นเพศอะไร</ion-label>
-        <ion-select interface="popover" [value]="gendervalue" (ionChange)="onChange($event)">
+        <ion-label floating>เพศ</ion-label>
+        <ion-label floating>{{gendervalue}}</ion-label>
+        <!-- <ion-select interface="popover" [value]="gendervalue" (ionChange)="onChange($event)">
           <ion-select-option value="female">เพศหญิง</ion-select-option>
           <ion-select-option value="male">เพศชาย</ion-select-option>
-        </ion-select>
+        </ion-select> -->
       </ion-item>
       <ion-item>
         <ion-label floating>อายุ</ion-label>

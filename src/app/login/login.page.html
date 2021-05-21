@@ -11,34 +11,42 @@
         </ion-select>
       </ion-item>
       <ion-item>
+        <img src="../../assets/icon/age.png" style="width: 5%;">
         <ion-label>อายุ</ion-label>
         <ion-input style="text-align: right;" type="number" [(ngModel)]="todo.age" name="age" required></ion-input>ปี
       </ion-item>
       <ion-item>
+        <img src="../../assets/icon/weight.png" style="width: 5%;">
         <ion-label floating>น้ำหนัก</ion-label>
         <ion-input type="number" style="text-align: right;" [(ngModel)]="todo.weight" name="weight" required></ion-input>กก.
       </ion-item>
       <ion-item>
+        <img src="../../assets/icon/height.png" style="width: 5%;">
         <ion-label floating>ส่วนสูง</ion-label>
         <ion-input type="number" style="text-align: right;" [(ngModel)]="todo.height" name="height" required></ion-input>ซม.
       </ion-item>
       <ion-item *ngIf="gender == 'female'; else show" #show>
+        <img src="../../assets/icon/wrist.png" style="width: 5%;">
         <ion-label floating>รอบข้อมือ</ion-label>
         <ion-input type="number" style="text-align: right;" [(ngModel)]="todo.wrist" name="wrist" required></ion-input>ซม.
       </ion-item>
       <ion-item *ngIf="gender == 'female'; else show" #show>
+        <img src="../../assets/icon/brachium.png" style="width: 5%;">        
         <ion-label floating>รอบต้นแขน(บริเวณที่กว้างที่สุด)</ion-label>
         <ion-input type="number" style="text-align: right;" [(ngModel)]="todo.brachium" name="brachium" required></ion-input>น.
       </ion-item>
       <ion-item>
-        <ion-label floating>รอบเอว(บริเวณสะดือ)</ion-label>
+        <img src="../../assets/icon/waistline.png" style="width: 5%;">
+        <ion-label floating>รอบเอว(บริเวณสะดือ)</ion-label>        
         <ion-input type="number" style="text-align: right;" [(ngModel)]="todo.waistline" name="waistline" required></ion-input>น.
       </ion-item>
-      <ion-item *ngIf="gender == 'female'; else show" #show>
+      <ion-item *ngIf="gender == 'female'; else show" #show>   
+        <img src="../../assets/icon/hipcircumference.png" style="width: 5%;">     
         <ion-label floating>รอบสะโพก</ion-label>
         <ion-input type="number" style="text-align: right;" [(ngModel)]="todo.hipcircumference" name="hipcircumference" required></ion-input>น.
       </ion-item>
       <ion-item>
+        <img src="../../assets/icon/activity.png" style="width: 5%;">
         <ion-label floating>กิจกรรม</ion-label>
         <ion-select interface="popover" (ionChange)="onChangeactivity($event)">
           <ion-select-option value="1.2">ไม่ได้ออกกำลังกายเลย</ion-select-option>
