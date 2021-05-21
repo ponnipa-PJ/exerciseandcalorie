@@ -4,7 +4,8 @@
     <h4>ค่าเหล่านี้ใช้ในการคำนวณเพื่อสร้างแผนการออกกำลังกายส่วนบุคคลของคุณ</h4>
     <form (ngSubmit)="logForm()" #form="ngForm" (ngSubmit)="go(form)">
       <ion-item>
-        <ion-label floating>คุณเป็นเพศอะไร</ion-label>
+        <img src="../../assets/icon/gender.png" style="width: 5%;">
+        <ion-label floating>เพศ</ion-label>
         <ion-select interface="popover" value="female" (ionChange)="onChange($event)">
           <ion-select-option value="female">เพศหญิง</ion-select-option>
           <ion-select-option value="male">เพศชาย</ion-select-option>

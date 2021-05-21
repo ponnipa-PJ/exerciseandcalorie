@@ -27,11 +27,11 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.authenticationService.authenticationState.subscribe(state => {
-        // if (state) {
-        //   this.router.navigate(['menu/dashboard']);
-        // } else {
-        //   this.router.navigate(['']);
-        // }
+        if (state) {
+          this.router.navigate(['menu/dashboard']);
+        } else {
+          this.router.navigate(['login']);
+        }
       });
     });
   }
